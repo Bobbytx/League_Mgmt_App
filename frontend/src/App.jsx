@@ -3,6 +3,7 @@ import "./App.css";
 import { api } from "./utilities";
 import { Outlet } from "react-router-dom";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -23,10 +24,10 @@ function App() {
 
   return (
     <>
-      <h1>Authentication Example</h1>
       <NavBar user={user} setUser={setUser} />
-      <h3>Welcome {user ? user : null}</h3>
+      {/* <h3>Welcome {user ? user : null}</h3> */}
       <Outlet context = {{user, setUser}} />
+      
     </>
   );
 }

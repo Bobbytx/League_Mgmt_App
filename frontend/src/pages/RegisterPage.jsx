@@ -4,9 +4,9 @@ import LogIn from "../components/LogIn";
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/esm/Button";
 
-export const RegisterPage = () => {
+export const RegisterPage = ({ initialShowLogin }) => {
   const { user, setUser } = useOutletContext();
-  const [existingUser, setExistingUser] = useState(true);
+  const [showLogin, setShowLogin] = useState(initialShowLogin); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -14,27 +14,28 @@ export const RegisterPage = () => {
       navigate("/");
     }
   }, []);
+
   return (
     <>
       <h1>Register Page</h1>
-      {existingUser ? (
-        <>
-          <SignUp setUser={setUser} />
-          <Button
-            variant="warning"
-            onClick={() => setExistingUser(!existingUser)}
-          >
-            Already have an account
-          </Button>
-        </>
-      ) : (
+      {showLogin ? (
         <>
           <LogIn setUser={setUser} />
           <Button
             variant="warning"
-            onClick={() => setExistingUser(!existingUser)}
+            onClick={() => setShowLogin(false)} 
           >
-            Don't have an account
+            Sign Up
+          </Button>
+        </>
+      ) : (
+        <>
+          <SignUp setUser={setUser} />
+          <Button
+            variant="warning"
+            onClick={() => setShowLogin(true)} 
+          >
+            Already have an account? Log In
           </Button>
         </>
       )}

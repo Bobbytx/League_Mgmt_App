@@ -1,6 +1,7 @@
+import React from 'react';
+import { Navbar, Nav, Container, Button, NavItem } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import { api } from "../utilities";
-import Button from "react-bootstrap/esm/Button";
+import { api } from "../utilities";  
 
 const NavBar = ({ user, setUser }) => {
   const logOut = async () => {
@@ -11,21 +12,33 @@ const NavBar = ({ user, setUser }) => {
       delete api.defaults.headers.common["Authorization"];
     }
   };
+
   return (
-    <nav>
-      <Link to={"/"}>Home</Link>
-      {user ? (
-        <>
-          <Link to={"contact/"}>Contacts</Link>
-          <Link to={"about/"}>About</Link>
-          <Button onClick={logOut} variant="danger">
-            Log Out
-          </Button>
-        </>
-      ) : (
-        <Link to={"/register/"}>Log In / Sign UP</Link>
-      )}
-    </nav>
+    <Navbar bg="light" expand="lg">
+      <Container fluid>
+        <Navbar.Brand as={Link} to="/">LeagueManager</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/about">About</Nav.Link>
+            <Nav.Link as={Link} to="/features">Features</Nav.Link>
+          </Nav>
+          {user ? (
+            <>
+              <Nav.Link as={Link} to="/contact">Contacts</Nav.Link>
+              <Button onClick={logOut} variant="danger">
+                Log Out
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button as={Link} to="/login" variant="outline-success">Login</Button>
+              <Button as={Link} to="/register" variant="success" style={{ marginLeft: '10px' }}>Sign Up</Button>
+            </>
+          )}
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 };
 

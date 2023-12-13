@@ -1,7 +1,9 @@
+import { Container } from "react-bootstrap";
+
 const AboutPage = () => {
     return (
-      <>
-      <h1>AboutPage</h1>
+      <Container id="about">
+      <h2>AboutPage</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptatem
         numquam eius distinctio aperiam pariatur suscipit, maiores laboriosam non
@@ -21,7 +23,7 @@ const AboutPage = () => {
         esse rem labore harum in repudiandae soluta quam, temporibus deleniti.
         Magni.
       </p>
-      </>
+      </Container>
     );
   };
   
