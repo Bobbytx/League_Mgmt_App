@@ -1,30 +1,77 @@
-import { Container } from "react-bootstrap";
+import React from 'react';
+import { Container, Row, Col, Table, Card } from 'react-bootstrap';
 
-const AboutPage = () => {
-    return (
-      <Container id="about">
-      <h2>AboutPage</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa voluptatem
-        numquam eius distinctio aperiam pariatur suscipit, maiores laboriosam non
-        ad ducimus molestias fuga sapiente, doloremque qui illo itaque sint
-        nostrum. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Possimus sint consequatur quae maiores! Quae doloribus, iusto inventore
-        reprehenderit sit unde blanditiis cupiditate quasi aliquam magnam deserunt
-        accusamus quibusdam fuga exercitationem. Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Eum iusto possimus adipisci, voluptatum ipsa
-        ut, voluptatem enim eaque odit, inventore eius aliquid omnis! Molestiae,
-        exercitationem? Quis incidunt cupiditate unde eum. Lorem ipsum dolor sit
-        amet consectetur adipisicing elit. Doloremque sapiente quas cumque
-        perferendis illo aliquam non vero? Magnam sapiente laudantium, molestiae
-        temporibus, ipsa sit quas laborum quasi id, magni dolor. Lorem ipsum dolor
-        sit, amet consectetur adipisicing elit. Molestiae earum reiciendis
-        consequuntur, accusamus similique excepturi voluptatem porro commodi magni
-        esse rem labore harum in repudiandae soluta quam, temporibus deleniti.
-        Magni.
-      </p>
-      </Container>
-    );
-  };
-  
-  export default AboutPage;
+function Dashboard() {
+  return (
+    <Container fluid>
+      <Row className="mb-4">
+        <Col>
+          <h1 className="text-center">Sporting League Manager</h1>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col lg={6}>
+          <h2>Game Schedule</h2>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Home Team</th>
+                <th>Away Team</th>
+                <th>Date/Time</th>
+                <th>Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Populate with game schedule data */}
+            </tbody>
+          </Table>
+        </Col>
+        <Col lg={6}>
+          <h2>Team Roster</h2>
+          <Table striped bordered hover>
+            <thead>
+              <tr>
+                <th>Player Name</th>
+                <th>Position</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* Populate with team roster data */}
+            </tbody>
+          </Table>
+        </Col>
+      </Row>
+
+      <Row>
+        <Col lg={4} className="mb-4">
+          <Card>
+            <Card.Body>
+              <Card.Title>Weather</Card.Title>
+              {/* Weather component or API integration */}
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={4} className="mb-4">
+          <Card>
+            <Card.Body>
+              <Card.Title>Game Location Map</Card.Title>
+              {/* Map component or API integration */}
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col lg={4} className="mb-4">
+          <Card>
+            <Card.Body>
+              <Card.Title>Coach Communication Hub</Card.Title>
+              {/* Chat or messaging component */}
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+  );
+}
+
+export default Dashboard;

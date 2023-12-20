@@ -6,7 +6,6 @@ class Team(models.Model):
     team_name = models.CharField(max_length=255)
     coach = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, related_name='coached_teams')
     league = models.ForeignKey(League, on_delete=models.CASCADE, related_name='teams')
-    #logo = models.ImageField(upload_to='team_logos', blank=True)
 
     def __str__(self):
         return self.team_name

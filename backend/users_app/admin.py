@@ -7,7 +7,7 @@ class CustomUserAdmin(admin.ModelAdmin):
     list_filter = ('is_staff', 'is_active', 'date_joined')
     search_fields = ('username', 'email', 'first_name', 'last_name')
     fieldsets = (
-        ('Personal Information', {'fields': ('first_name', 'last_name', 'email')}),
+        ('Personal Information', {'fields': ('username', 'first_name', 'last_name', 'email')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('Important Dates', {'fields': ('last_login', 'date_joined')}),
     )

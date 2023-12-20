@@ -11,13 +11,13 @@ export const RegisterPage = ({ initialShowLogin }) => {
 
   useEffect(() => {
     if (user) {
-      navigate("/");
+      navigate("/dashboard/");
     }
   }, []);
 
   return (
     <>
-      <h1>Register Page</h1>
+      <h1>Log In / Sign Up Page</h1>
       {showLogin ? (
         <>
           <LogIn setUser={setUser} />

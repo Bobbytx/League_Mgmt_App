@@ -4,7 +4,7 @@ import { RegisterPage } from "./pages/RegisterPage";
 import App from "./App";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage"
-import LoginPage from "./pages/LoginPage";
+import DashboardPage from "./pages/DashboardPage";
 
 const router = createBrowserRouter([
     {
@@ -27,14 +27,17 @@ const router = createBrowserRouter([
                 path:"contact/",
                 element:<ContactPage />
             },
-            {   path: "login/",
-                element: <LoginPage />
-            },
             {   path: "signup/",
                 element: <RegisterPage />
-            }
+            },
+            {
+                path: "dashboard/",
+                element: <DashboardPage />
+            },
         ]
     }
 ])
 
 export default router
+
+

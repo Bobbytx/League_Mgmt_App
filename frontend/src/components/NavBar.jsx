@@ -16,24 +16,23 @@ const NavBar = ({ user, setUser }) => {
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
-        <Navbar.Brand as={Link} to="/">LeagueManager</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">Sporting League Manager</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/about">About</Nav.Link>
-            <Nav.Link as={Link} to="/features">Features</Nav.Link>
+            <Nav.Link as={Link} to="/dashboard">Dashboard</Nav.Link>
           </Nav>
           {user ? (
             <>
-              <Nav.Link as={Link} to="/contact">Contacts</Nav.Link>
+              {/* <Nav.Link as={Link} to="/contact">Contacts</Nav.Link> */}
               <Button onClick={logOut} variant="danger">
                 Log Out
               </Button>
             </>
           ) : (
             <>
-              <Button as={Link} to="/login" variant="outline-success">Login</Button>
-              <Button as={Link} to="/register" variant="success" style={{ marginLeft: '10px' }}>Sign Up</Button>
+              <Button as={Link} to="/register" variant="success" style={{ marginLeft: '10px' }}>Log In / Sign Up</Button>
             </>
           )}
         </Navbar.Collapse>

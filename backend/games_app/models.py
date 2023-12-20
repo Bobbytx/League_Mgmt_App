@@ -14,6 +14,9 @@ class GameResult(models.Model):
     home_team_score = models.IntegerField(default=0)
     away_team_score = models.IntegerField(default=0)
 
+    def __str__(self):
+        return f"{self.home_team.team_name} vs {self.away_team.team_name} - {self.game_date}"
+
     @property
     def result(self):
         if self.home_team_score > self.away_team_score:

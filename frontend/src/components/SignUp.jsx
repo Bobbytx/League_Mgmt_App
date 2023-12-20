@@ -8,6 +8,8 @@ const SignUp = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const navigate = useNavigate();
 
   const signUp = async (e) => {
@@ -16,7 +18,9 @@ const SignUp = ({ setUser }) => {
       email: email,
       password: password,
       display_name: displayName,
-    });
+      first_name: firstName,
+      last_name: lastName,
+    }, { headers: { 'Authorization': '' } });
     if (response.status === 201) {
       setUser(response.data.user);
       localStorage.setItem("token", response.data.token);
@@ -47,7 +51,25 @@ const SignUp = ({ setUser }) => {
           value={displayName}
           onChange={(e) => setDisplayName(e.target.value)}
           type="text"
-          placeholder="displayname"
+          placeholder="Display Name"
+        />
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Label>First Name</Form.Label>
+        <Form.Control
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          type="text"
+          placeholder="First Name"
+        />
+      </Form.Group>
+      <Form.Group className="mb-3">
+        <Form.Label>Last Name</Form.Label>
+        <Form.Control
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          type="text"
+          placeholder="Last Name"
         />
       </Form.Group>
       <Form.Group className="mb-3">
