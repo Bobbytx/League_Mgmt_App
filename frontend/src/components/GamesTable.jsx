@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Button, Modal, Form } from 'react-bootstrap';
+import { Table, Button, Modal, Form, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { api } from '../utilities';
 
-const GamesTable = ({ teamId, user }) => {
+const GamesTable = ({ teamId, user, setGameLocation }) => {
   const [games, setGames] = useState([]);
   const [showEditModal, setShowEditModal] = useState(false);
   const [editGameData, setEditGameData] = useState({});
@@ -20,6 +20,10 @@ const GamesTable = ({ teamId, user }) => {
     try {
       const response = await api.get(`http://localhost:8000/api/v1/games/team-games/${teamId}/`);
       setGames(response.data);
+      if (response.data && response.data.length > 0) {
+        setGameLocation(response.data[0].location);
+        console.log("Setting game location in GamesTable:", response.data[0].location);
+      }
     } catch (error) {
       console.error("Error fetching team games:", error);
     }
@@ -96,8 +100,14 @@ const GamesTable = ({ teamId, user }) => {
   
   return (
     <>
-      {/* Button to open modal for adding a new game */}
-      <Button onClick={() => setShowAddModal(true)}>Add New Game</Button>
+      <Row>
+        <Col>
+          <h2>Team Schedule</h2>
+        </Col>
+        <Col className="text-right">
+          <Button onClick={() => setShowAddModal(true)}>Add New Game</Button>
+        </Col>
+      </Row>
 
 {/* Add Game Modal */}
 {showAddModal && (
@@ -155,7 +165,7 @@ const GamesTable = ({ teamId, user }) => {
   </Modal>
 )}
 
-      <Table striped bordered hover>
+      <Table striped hover>
         <thead>
           <tr>
             <th>League ID</th>

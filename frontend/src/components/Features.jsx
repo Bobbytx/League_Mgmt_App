@@ -8,9 +8,9 @@ const Features = () => {
   return (
     <Container fluid id="features">
       <h2>Features</h2>
-      <Row>
+      <Row className="d-flex align-items-stretch">
         <Col>
-          <Card>
+          <Card className="h-100">
             <Card.Img variant="top" src={catCommish} />
             <Card.Body>
               <Card.Title>Create A League</Card.Title>
@@ -22,7 +22,7 @@ const Features = () => {
           </Card>
         </Col>
         <Col>
-          <Card>
+          <Card className="h-100">
             <Card.Img variant="top" src={catCoach} />
             <Card.Body>
               <Card.Title>Manage Your Team</Card.Title>
@@ -32,7 +32,7 @@ const Features = () => {
           </Card>
         </Col>
         <Col>
-          <Card>
+          <Card className="h-100">
             <Card.Img variant="top" src={catPlayer} />
             <Card.Body>
               <Card.Title>View Your Schedule and Stats</Card.Title>

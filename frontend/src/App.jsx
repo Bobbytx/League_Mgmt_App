@@ -4,6 +4,7 @@ import { api } from "./utilities";
 import { Outlet } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
+import { LoadScript } from '@react-google-maps/api';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -31,9 +32,11 @@ function App() {
 
   return (
     <>
+      <LoadScript googleMapsApiKey={import.meta.env.VITE_REACT_APP_GOOGLE_MAPS_API_KEY}>
       <NavBar user={user} setUser={setUser} />
       <Outlet context={{ user, setUser, getInfo }} />
       <Footer />
+      </LoadScript>
     </>
   );
 }

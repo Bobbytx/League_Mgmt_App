@@ -3,7 +3,7 @@ import { Table } from 'react-bootstrap';
 
 const TeamPlayers = ({ players }) => {
   return (
-    <Table striped bordered hover>
+    <Table striped hover>
       <thead>
         <tr>
           <th>Player Name</th>

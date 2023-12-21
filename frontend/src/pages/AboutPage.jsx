@@ -1,77 +1,17 @@
-import React from 'react';
-import { Container, Row, Col, Table, Card } from 'react-bootstrap';
+import { Container } from "react-bootstrap";
 
-function Dashboard() {
-  return (
-    <Container fluid>
-      <Row className="mb-4">
-        <Col>
-          <h1 className="text-center">Sporting League Manager</h1>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col lg={6}>
-          <h2>Game Schedule</h2>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Home Team</th>
-                <th>Away Team</th>
-                <th>Date/Time</th>
-                <th>Location</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Populate with game schedule data */}
-            </tbody>
-          </Table>
-        </Col>
-        <Col lg={6}>
-          <h2>Team Roster</h2>
-          <Table striped bordered hover>
-            <thead>
-              <tr>
-                <th>Player Name</th>
-                <th>Position</th>
-                <th>Role</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* Populate with team roster data */}
-            </tbody>
-          </Table>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col lg={4} className="mb-4">
-          <Card>
-            <Card.Body>
-              <Card.Title>Weather</Card.Title>
-              {/* Weather component or API integration */}
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col lg={4} className="mb-4">
-          <Card>
-            <Card.Body>
-              <Card.Title>Game Location Map</Card.Title>
-              {/* Map component or API integration */}
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col lg={4} className="mb-4">
-          <Card>
-            <Card.Body>
-              <Card.Title>Coach Communication Hub</Card.Title>
-              {/* Chat or messaging component */}
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
-    </Container>
-  );
-}
-
-export default Dashboard;
+const AboutPage = () => {
+    return (
+      <Container id="about">
+      <h2>AboutPage</h2>
+      <p>
+        This is a simple application to manage a sporting league. It allows users to register and login to create a league, add teams to the league, and schedule games between teams. Coaches have the ability to add games to the team's schedule, update the game date, time, and location. There is a weather forecast for the next 5 days to give insight to weather condition for upcoming games. The Google Maps integration shows the location of the next game for a team. 
+      </p>
+      <p>
+        Features coming soon: Team communication hub for coaches to leave messages for the team. Track teams win/loss record for a season and display league standings. 
+      </p>
+      </Container>
+    );
+  };
+  
+  export default AboutPage;
